@@ -1,0 +1,13 @@
+:host {
+    position: fixed;
+    bottom: 0 !important;
+    right: 0 !important;
+    z-index: 1200;
+    margin: 5px;
+}
+
+.container {
+    width: 320px;
+    font-size: 18px;
+    margin: 3px 0 0;
+}

@@ -1,0 +1,159 @@
+<p>case-create works!</p>
+<div class="warper">
+    <div class="container">
+        <form class="fs-5">
+            <div class="row gx-4 mt-2">
+                <div class="col-md-2 col-sm-4 text-end py-3">案類：</div>
+                <div class="col-md-10 col-sm-8 py-2">
+                    <div class="row">
+                        <div class="col-auto border rounded py-1">竊盜
+                            <fa-icon [icon]="['fas', 'minus']"></fa-icon>
+                        </div>
+                        <div class="col-auto border rounded py-1">強盜
+                            <fa-icon [icon]="['fas', 'minus']"></fa-icon>
+                        </div>
+                        <div class="col-auto border rounded py-1">機車尋獲
+                            <fa-icon [icon]="['fas', 'minus']"></fa-icon>
+                        </div>
+                        <div class="col-auto border rounded py-1">新增
+                            <fa-icon [icon]="['fas','plus']"></fa-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-4 mt-2">
+                <div class="col-md-2 col-sm-4 text-end">
+                    <label for="caseName" class="col-form-label">案件名稱：</label>
+                </div>
+                <div class="col-md-4 col-sm-8">
+                    <input type="text" class="form-control fs-5" placeholder="案名">
+                    <span>Test</span>
+                </div>
+                <div class="col-md-2 col-sm-4 text-end">
+                    <label for="caseSerialNumber" class="col-form-label">流水號：</label>
+                </div>
+                <div class="col-md-4 col-sm-8">
+                    <input type="text" class="form-control fs-5">
+                </div>
+            </div>
+            <div class="row gx-4 mt-2">
+                <div class="col-md-2 col-sm-4 text-end py-2">受理單位：</div>
+                <div class="col-md-10 col-sm-8 py-2">
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="unitInCharge" id="radioPsInCharge"
+                                checked>
+                            <label class="form-check-label" for="radioPsInCharge">分駐（派出所）</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="unitInCharge" id="radioCibInCharge">
+                            <label class="form-check-label" for="radioCibInCharge">偵查隊</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="unitInCharge" id="radioMultiInCharge">
+                            <label class="form-check-label" for="radioMultiInCharge">跨單位</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="unitInCharge" id="radioOtherInCharge">
+                            <label class="form-check-label" for="radioOtherInCharge">無</label>
+                        </div>
+                    </div>
+                    <div name="inCharger" class="border rounded">
+                        <div name="inChargerTable" class="py-3">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>#</th>
+                                    <th>單位</th>
+                                    <th>受理/承辦人員</th>
+                                    <th>操作</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>麻豆分局</td>
+                                    <td>警員XXX</td>
+                                    <td>
+                                        <input type="button" class="btn btn-warning fs-5" value="新增人員">
+                                        <input type="button" class="btn btn-info fs-5" value="修改單位">
+                                        <input type="button" class="btn btn-danger fs-5" value="刪除">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>麻豆分局</td>
+                                    <td>警員XXX</td>
+                                    <td>
+                                        <input type="button" class="btn btn-warning fs-5" value="新增人員">
+                                        <input type="button" class="btn btn-info fs-5" value="修改單位">
+                                        <input type="button" class="btn btn-danger fs-5" value="刪除">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div name="inChargerInputForm">
+                            <div class="row gx-2">
+                                <div class="col-md-1 col-sm-1 text-end">
+                                    <label for="caseName" class="col-form-label">單位：</label>
+                                </div>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="text" class="form-control fs-5" placeholder="單位" id="unitInCharger">
+                                </div>
+                                <label class="col-form-label col-auto" name="supOfInCharger">(隸屬單位)</label>
+                                <div class="col-auto">
+                                    <input type="button" class="btn btn-info fs-5" value="進階查詢">
+                                </div>
+                            </div>
+                            <div class="row gx-2 py-2">
+                                <div class="col-md-2 col-sm-2 mx-2">
+                                    <div class="form-check form-check-inline pt-2 float-end">
+                                        <input type="check" class="form-check-input" name="withReportDate"
+                                            id="checkWithReportDate">
+                                        <label class="form-check-label" for="checkWithReportDate">報案日期</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3" style="background-color:red">
+                                    <div class="input-group">
+                                        <input class="form-control fs-5" placeholder="yyyy-mm-dd" name="dp"
+                                            ngbDatepicker #d="ngbDatepicker" />
+                                        <button class="btn btn-outline-secondary" value="Test" (click)="d.toggle()">
+                                            <fa-icon [icon]="['far', 'calendar-days']" size="lg"></fa-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-2 mx-2">
+                                    <div class="form-check form-check-inline pt-2 float-end">
+                                        <input type="check" class="form-check-input" name="withReportTime"
+                                            id="checkWithReportTime">
+                                        <label class="form-check-label" for="checkWithReportTime">時間</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3" style="background-color:red">
+                                    <div class="input-group">
+                                        <input type="time" class="form-control fs-5" placeholder="13:00:00"
+                                            id="reportTime">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gx-2">
+                                <div class="col-md-1 col-sm-1"></div>
+                                <div class="col-md-3 col-sm-3 d-flex">
+                                    <input type="button" class="btn btn-info fs-5" value="新增人員">
+                                    <label class="col-form-label px-4" for="personInCharger">受理人員</label>
+                                </div>
+                                <div class="col-md-2 col-sm-4">
+                                    <select class="form-control fs-5">
+                                        <option *ngFor="let mrank of mranks" [ngValue]="mrank.id">{{mrank.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 col-sm-4">
+                                    <input type="text" class="form-control fs-5" placeholder="姓名" id="personInCharger">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span>Test</span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

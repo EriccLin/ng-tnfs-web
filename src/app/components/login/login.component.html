@@ -1,0 +1,80 @@
+<!-- 
+https://www.youtube.com/watch?v=VP0DS6iXbXY
+Responsive Login and Registration Form in HTML CSS & JavaScript 
+icon: https://iconscout.com/unicons/explore/line -->
+
+<div class="container">
+    <div class="forms">
+        <!-- 登入頁面 -->
+        <div class="form login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <span class="title">登入</span>
+            <form action="#">
+                <div>
+                    <div class="input-field">
+                        <input type="text" name="username" placeholder="你的帳號" formControlName="username" required>
+                        <i id="icon-mark" class="uil uil-user"></i>
+                    </div>
+                    <div *ngIf="checkValidation" class="alert alert-danger">
+                        <div [ngSwitch]="true">
+                            <div *ngSwitchCase="loginForm.controls['username'].errors?.['required']">帳號不可為空</div>
+                            <div *ngSwitchCase="loginForm.controls['username'].errors?.['min'] !== undefined">帳號至少5個字元
+                            </div>
+                            <div *ngSwitchCase="loginForm.controls['username'].errors?.['max'] !== undefined">帳號至多15個字元
+                            </div>
+                            <div *ngSwitchCase="loginForm.controls['username'].errors?.['pattern'] !== undefined">
+                                帳號僅限大小寫英文及數字</div>
+                            <div *ngSwitchDefault>不明錯誤</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-field">
+                        <input type="password" name="password" id="password" placeholder="你的密碼"
+                            formControlName="password" required>
+                        <i id="icon-mark" class="uil uil-lock"></i>
+                        <i id="icon-pw" class="uil uil-eye-slash"></i>
+                        <!-- <i class="uil uil-eye"></i> -->
+                    </div>
+                    <div *ngIf="checkValidation" class="alert alert-danger">
+                        <div [ngSwitch]="true">
+                            <div *ngSwitchCase="loginForm.controls['password'].errors?.['required']">密碼不可為空</div>
+                            <div *ngSwitchCase="loginForm.controls['password'].errors?.['min'] !== undefined">帳號至少5個字元
+                            </div>
+                            <div *ngSwitchCase="loginForm.controls['password'].errors?.['max'] !== undefined">密碼至多15個字元
+                            </div>
+                            <div *ngSwitchCase="loginForm.controls['password'].errors?.['pattern'] !== undefined">
+                                密碼至少包含1個數字、1個大小寫英文及1個特殊符號</div>
+                            <div *ngSwitchDefault>不明錯誤</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-field button">
+                    <button type="submit" class="btn">登入</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- 註冊頁面
+        <div class="form login">
+            <span class="title">註冊</span>
+            <form action="#">
+                <div class="input-field">
+                    <input type="text" name="lastname" placeholder="姓名" required>
+                    <i class="uil uil-user icon"></i>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="lastname" placeholder="姓名" required>
+                    <i class="uil uil-user icon"></i>
+                </div>
+                <div class="input-field">
+                    <input type="password" name="password" placeholder="你的密碼" required>
+                    <i class="uil uil-lock icon"></i>
+                    <i class="uil uil-eye-slash showHidePw"></i>
+                </div>
+                <div class="input-field button">
+                    <button class="btn">登入</button>
+                </div>
+            </form>
+        </div> -->
+    </div>
+</div>
