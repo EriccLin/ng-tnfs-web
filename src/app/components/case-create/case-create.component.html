@@ -58,35 +58,81 @@
                             <label class="form-check-label" for="radioOtherInCharge">無</label>
                         </div>
                     </div>
-                    <div name="inCharger" class="border rounded">
-                        <div name="inChargerTable" class="py-3">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>#</th>
-                                    <th>單位</th>
-                                    <th>受理/承辦人員</th>
-                                    <th>操作</th>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>麻豆分局</td>
-                                    <td>警員XXX</td>
-                                    <td>
-                                        <input type="button" class="btn btn-warning fs-5" value="新增人員">
-                                        <input type="button" class="btn btn-info fs-5" value="修改單位">
-                                        <input type="button" class="btn btn-danger fs-5" value="刪除">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>麻豆分局</td>
-                                    <td>警員XXX</td>
-                                    <td>
-                                        <input type="button" class="btn btn-warning fs-5" value="新增人員">
-                                        <input type="button" class="btn btn-info fs-5" value="修改單位">
-                                        <input type="button" class="btn btn-danger fs-5" value="刪除">
-                                    </td>
-                                </tr>
+                    <div name="inCharger" class="border rounded ">
+                        <div name="inChargerTable" class="table-responsive d-flex justify-content-center py-3" style="background-color: pink">
+                            <table class="table table-striped w-auto align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>上級單位</th>
+                                        <th>單位</th>
+                                        <th>受理/承辦人員</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>麻豆分局</td>
+                                        <td>麻豆所</td>
+                                        <td>
+                                            <button class="btn btn-secondary border rounded mx-1"><span>警員XXX</span>
+                                                <fa-icon [icon]="['fas', 'minus']"></fa-icon>
+                                            </button>
+                                            <button class="btn btn-info border rounded mx-1"><span>新增</span>
+                                                <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-warning border rounded mx-1"><span>修改</span></button>
+                                            <button class="btn btn-danger border rounded mx-1"><span>刪除</span></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>善化分局</td>
+                                        <td>偵查隊</td>
+                                        <td>
+                                            <button class="btn btn-secondary border rounded mx-1"><span>警員XXX</span>
+                                                <fa-icon [icon]="['fas', 'minus']"></fa-icon>
+                                            </button>
+                                            <button class="btn btn-secondary border rounded mx-1"><span>偵查佐XXX</span>
+                                                <fa-icon [icon]="['fas', 'minus']"></fa-icon>
+                                            </button>
+                                            <button class="btn btn-info border rounded mx-1"><span>新增</span>
+                                                <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-warning border rounded mx-1"><span>修改</span></button>
+                                            <button class="btn btn-danger border rounded mx-1"><span>刪除</span></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>-</td>
+                                        <td>刑事鑑識中心</td>
+                                        <td>
+                                            <button class="btn btn-secondary border rounded mx-1"><span>警員XXX</span>
+                                                <fa-icon [icon]="['fas', 'minus']"></fa-icon>
+                                            </button>
+                                            <button class="btn btn-info border rounded mx-1"><span>新增</span>
+                                                <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-warning border rounded mx-1"><span>修改</span></button>
+                                            <button class="btn btn-danger border rounded mx-1"><span>刪除</span></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr><td></td><td></td><td></td><td></td>
+                                        <td>
+                                            <button class="btn btn-info border rounded mx-1"><span>新增</span></button>
+                                        </td>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                         <div name="inChargerInputForm">
@@ -114,7 +160,7 @@
                                     <div class="input-group">
                                         <input class="form-control fs-5" placeholder="yyyy-mm-dd" name="dp"
                                             ngbDatepicker #d="ngbDatepicker" />
-                                        <button class="btn btn-outline-secondary" value="Test" (click)="d.toggle()">
+                                        <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
                                             <fa-icon [icon]="['far', 'calendar-days']" size="lg"></fa-icon>
                                         </button>
                                     </div>
@@ -128,9 +174,14 @@
                                 </div>
                                 <div class="col-md-3 col-sm-3" style="background-color:red">
                                     <div class="input-group">
-                                        <input type="time" class="form-control fs-5" placeholder="13:00:00"
-                                            id="reportTime">
+                                        <input type="text" class="form-control fs-5" placeholder="HH:mm:ss">
+                                        <button class="btn btn-outline-secondary" id="timePickerBtn" type="button">
+                                            <fa-icon [icon]="['far','clock']" size="lg"></fa-icon>
+                                        </button>
                                     </div>
+                                        <!-- <input type="time" class="form-control fs-5" placeholder="13:00:00"
+                                            id="reportTime"> -->
+                                    <ngb-timepicker class="form-control fs-5" id="timePicker"></ngb-timepicker>
                                 </div>
                             </div>
                             <div class="row gx-2">
@@ -151,7 +202,6 @@
                             </div>
                         </div>
                     </div>
-                    <span>Test</span>
                 </div>
             </div>
         </form>

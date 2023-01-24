@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbDateStruct, NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -7,7 +7,7 @@ import { NgbDateStruct, NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './case-create.component.html',
   styleUrls: ['./case-create.component.css']
 })
-export class CaseCreateComponent {
+export class CaseCreateComponent implements OnInit{
   time: NgbTimeStruct = { hour: 13, minute: 30, second: 30 };
   seconds = true;
 
@@ -29,5 +29,16 @@ export class CaseCreateComponent {
     { id: 11, name: "副分局長" },
     { id: 12, name: "分局長" },
   ];
-  constructor() { }
+  constructor() { 
+  }
+  ngOnInit(): void {
+    $(function(){
+      $("#timePicker").hide();
+      $("#timePickerBtn").on("click",function(){
+        console.log(this);
+        $("#timePicker").toggle();
+      });
+    });
+
+  }
 }
